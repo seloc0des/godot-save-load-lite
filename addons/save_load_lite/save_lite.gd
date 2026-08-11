@@ -4,7 +4,7 @@ extends Node
 # `save_load_contract_lite` group with `get_save_id() / save_state() / load_state()`
 # methods participate.
 #
-# This is the **working core** of the CindieForge Save addon. Features cut from
+# This is the **working core** of the selodev Save addon. Features cut from
 # the paid Pro tier:
 #
 #   * Multi-slot save/load                 — Pro

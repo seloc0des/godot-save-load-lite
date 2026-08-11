@@ -83,4 +83,4 @@ func _refresh() -> void:
 	var flash := ""
 	if Time.get_ticks_msec() / 1000.0 < _flash_until:
 		flash = "\n• %s" % _flash_text
-	_hud.text = "Save/Load — Lite Demo\nA/D to move (player_x = %d)\nC: +1 coin (coins = %d)\nS: Save • L: Load • R: Reset • X: Delete save%s" % [int(player_x), coins, flash]
+	_hud.text = "Save/Load (Lite) · Demo\nA/D to move (player_x = %d)\nC: +1 coin (coins = %d)\nS: Save • L: Load • R: Reset • X: Delete save%s" % [int(player_x), coins, flash]

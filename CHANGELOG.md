@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0 — 2026-07-24
+
+One-click no-code setup.
+
+- New **Save/Load · Setup** panel (the first dock tab): pick the outcome you want → **Apply** → the Lite component is added to your scene, baked in and re-editable.
+- Pro unlocks the full no-code wiring — gameplay triggers, bound UI, and cross-system hooks.
+
 ## 1.0.0 — 2026-06-01
 
 Initial release.

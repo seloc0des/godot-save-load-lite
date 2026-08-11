@@ -7,6 +7,7 @@ const TEST_PATH := "user://verify_save_lite.json"
 
 var _passes := 0
 var _failures := 0
+var _log: Array = []  # [ [bool passed, String msg], ... ] — for the windowed report
 
 
 func _ready() -> void:
@@ -18,10 +19,20 @@ func _ready() -> void:
 	await _run_delete_save()
 	await _run_only_contract_group_participates()
 	print("--- %d passed, %d failed ---" % [_passes, _failures])
-	get_tree().quit(0 if _failures == 0 else 1)
+	# Headless (CI/build) keeps the exit-code behavior. In a window (editor F6) show a
+	# visual PASS/FAIL banner instead — the load-and-look buyer QA scene.
+	if DisplayServer.get_name() == "headless":
+		get_tree().quit(0 if _failures == 0 else 1)
+	else:
+		# untyped on purpose: `:=` on load().new() is a Variant → parse-hang; class_name
+		# would need a project rescan to register. Plain dynamic dispatch dodges both.
+		var report = load("res://tools/acceptance_report.gd").new()
+		get_tree().root.add_child(report)
+		report.render(_passes, _failures, _log)
 
 
 func _assert(cond: bool, msg: String) -> void:
+	_log.append([cond, msg])
 	if cond:
 		_passes += 1
 		print("PASS: " + msg)

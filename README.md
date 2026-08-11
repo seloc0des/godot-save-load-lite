@@ -1,5 +1,7 @@
 # Save / Load — Lite
 
+> **New in 1.1.0:** a one-click **Setup** tab. Pick the outcome you want, press Apply, and a working component lands in your scene. Details in CHANGELOG.md.
+
 **FREE.** Single-slot JSON save/load for Godot 4.3+. Pure GDScript. MIT.
 
 The working core of the [CindieForge Save addon](docs/upgrade.md). Drop the autoload, mark nodes with `SaveableLite`, call `SaveLite.save()`. Done.
