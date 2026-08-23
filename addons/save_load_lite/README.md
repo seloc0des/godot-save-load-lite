@@ -1,8 +1,8 @@
 # Save / Load — Lite
 
-**FREE.** Single-slot JSON save/load for Godot 4.3+. Pure GDScript. MIT.
+**FREE.** Single-slot JSON save/load for Godot 4.5+. Pure GDScript. MIT.
 
-The working core of the [CindieForge Save addon](docs/upgrade.md). Drop the autoload, mark nodes with `SaveableLite`, call `SaveLite.save()`. Done.
+The working core of the [selodev Save addon](docs/upgrade.md). Drop the autoload, mark nodes with `SaveableLite`, call `SaveLite.save()`. Done.
 
 ## 5-minute install
 

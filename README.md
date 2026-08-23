@@ -1,15 +1,17 @@
-# Save / Load — Lite
+# Save / Load (Lite)
 
-> **New in 1.1.0:** a one-click **Setup** tab. Pick the outcome you want, press Apply, and a working component lands in your scene. Details in CHANGELOG.md.
+**FREE.** Single-slot JSON save/load for Godot 4.5+. Pure GDScript. MIT.
 
-**FREE.** Single-slot JSON save/load for Godot 4.3+. Pure GDScript. MIT.
+The working core of the [selodev Save addon](docs/upgrade.md). Drop the autoload, mark nodes with `SaveableLite`, call `SaveLite.save()`. Done.
 
-The working core of the [CindieForge Save addon](docs/upgrade.md). Drop the autoload, mark nodes with `SaveableLite`, call `SaveLite.save()`. Done.
+## One-click setup (no code)
+
+Enable the plugin and a **Save/Load · Setup** tab appears in the editor. Pick the outcome you want and press **Apply** — the Lite component is added to your scene, baked in and editable. *(Pro unlocks the full no-code wiring — gameplay triggers, bound UI, cross-system hooks.)*
 
 ## 5-minute install
 
 1. Copy `addons/save_load_lite/` into your project's `addons/` folder.
-2. Project → Project Settings → Plugins → enable **Save / Load — Lite**.
+2. Project → Project Settings → Plugins → enable **Save / Load (Lite)**.
 3. On nodes you want persisted, either:
    - Drop a child `SaveableLite` node and list properties in `save_properties`, OR
    - Implement `get_save_id()`, `save_state() -> Dictionary`, `load_state(data: Dictionary)` directly and add the node to the `save_load_contract_lite` group.
@@ -41,7 +43,6 @@ See [docs/upgrade.md](docs/upgrade.md).
 ## License
 
 MIT. Ship it in commercial games.
-
 
 ---
 

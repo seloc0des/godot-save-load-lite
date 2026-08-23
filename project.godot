@@ -1,17 +1,27 @@
-; Demo / dev project for Save / Load — Lite.
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
-config/name="Save / Load — Lite — Demo"
-config/description="Free single-slot JSON save/load for Godot 4.3+."
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/name="Save / Load (Lite) · Demo"
+config/description="Free single-slot JSON save/load for Godot 4.5+."
 run/main_scene="res://demo/save_demo.tscn"
+config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]
 
-SaveLite="*res://addons/save_load_lite/save_lite.gd"
+SaveLite="*uid://2a6nr5e3b3ue"
 
 [display]
 

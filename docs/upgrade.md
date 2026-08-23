@@ -13,7 +13,7 @@ Save / Load — Lite covers the "save a single JSON file" core. The Pro tier add
 - **Side-channel slots.** Settings, achievements, world flags — separate from per-character saves.
 - **Direct save-contract opt-in for code-first nodes.** No `Saveable` node required.
 
-## Compatibility with the rest of the CindieForge stack
+## Compatibility with the rest of the selodev stack
 
 Inventory, Equipment, Loot, Crafting, Vendor, Quests, Stats / Skill Trees all auto-join the **Pro** Save addon's contract group when both are installed. Lite uses a separate group name (`save_load_contract_lite`) so upgrading is a copy-paste — change the group name, that's it.
 

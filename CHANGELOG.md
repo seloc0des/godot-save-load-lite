@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0 (2026-08-22)
+
+- Engine floor moves to Godot 4.5. The project and the plugin description both
+  said 4.3 before, which no longer matched the code.
+- The addon and its docs now say selodev throughout. The old CindieForge name
+  was still in the README and the upgrade notes after the rebrand.
+- A corrupt or hand-edited save reports `load_failed` instead of going quiet.
+  If the save's `nodes` key was not an object, `load()` aborted partway and
+  emitted neither `load_failed` nor `load_completed`, so a game showing
+  "Load failed" on that signal showed nothing at all.
+
 ## 1.1.0 — 2026-07-24
 
 One-click no-code setup.
