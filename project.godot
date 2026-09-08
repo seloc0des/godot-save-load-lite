@@ -21,7 +21,7 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]
 
-SaveLite="*uid://2a6nr5e3b3ue"
+SaveLite="*res://addons/save_load_lite/save_lite.gd"
 
 [display]
 

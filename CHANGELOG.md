@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.1 (2026-09-08)
+
+- The demo project's SaveLite autoload is registered by path again.
+  project.godot pointed it at a uid://, which Godot can only resolve once it has
+  built the project's UID map, so a fresh clone opened as a project errored
+  until the first import had run. Installing the addon into your own project
+  was never affected: the plugin registers the autoload by path itself.
+
 ## 1.2.0 (2026-08-22)
 
 - Engine floor moves to Godot 4.5. The project and the plugin description both
