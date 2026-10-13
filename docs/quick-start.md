@@ -1,20 +1,29 @@
 # Quick Start
 
-## Approach 1: SaveableLite node (no code)
+## With the Setup tab (no code)
 
-Drop a `SaveableLite` Node as a child of any node whose properties you want persisted. Set:
-
-- `save_id` — optional stable id. Defaults to the parent's NodePath.
-- `save_properties` — `PackedStringArray` of property names on the parent.
+1. Enable **Save / Load (Lite)** in Project Settings → Plugins. The **Save & Load · Setup** tab appears on the right.
+2. Open your level and select the node you want saved, for example your player.
+3. Pick **Save this node's state**, keep **Selected node** and press **Apply**. The node gets a `SaveableLite` child. Its **Save Properties** list starts with the node's position (2D and 3D nodes) and its exported properties. Remove anything you don't want kept.
+4. Pick **Quick save and load keys (F5 / F9)**. Tick **Load the save when the scene starts** if the game should start from the last save. Press **Apply**. A `SaveKeys` node goes on the scene root.
+5. Press Play. F5 saves, F9 loads, with a short message on screen: "Game saved", "Game loaded" or "No save to load yet".
 
 ```
-Player (Node2D)
-├── SaveableLite (save_properties = ["position", "health", "gold"])
+MyLevel
+├── Player (CharacterBody2D)
+│   └── SaveableLite (save_properties = ["position", "health", "gold"])
+└── SaveKeys (F5 saves, F9 loads)
 ```
 
-`SaveLite.save()` reads each named property; `SaveLite.load()` writes them back.
+On the `SaveKeys` node in the Inspector, pick other keys under **Save Key** and **Load Key**, or untick **Show Messages** to save quietly. Apply again any time: it updates the nodes that are there instead of adding more.
 
-## Approach 2: Direct contract (custom serialization)
+`save_id` on a `SaveableLite` is optional. Left blank, the node's path in the scene is used.
+
+Everything goes to one file, `user://save.json`. Positions, colours and whole numbers come back as the same type they were saved as.
+
+## From code (optional)
+
+### Direct contract (custom serialization)
 
 For full control, skip `SaveableLite` and implement the contract methods directly on your node, then join the group:
 
@@ -29,16 +38,16 @@ func get_save_id() -> String:
 
 func save_state() -> Dictionary:
     return {
-        "position": position,
+        "position": var_to_str(position),  # JSON has no Vector2, so keep it as text
         "inventory": _serialize_inventory(),
     }
 
 func load_state(data: Dictionary) -> void:
-    position = data.get("position", Vector2.ZERO)
+    position = str_to_var(data.get("position", "Vector2(0, 0)"))
     _restore_inventory(data.get("inventory", []))
 ```
 
-## Saving and loading
+### Saving and loading
 
 ```gdscript
 SaveLite.save()                          # user://save.json
@@ -50,7 +59,7 @@ SaveLite.delete_save()
 
 The Lite tier is single-slot per *path you pass*. If you need a slot manager UI plus per-slot screenshots and metadata, that lives in the Pro tier.
 
-## Signals
+### Signals
 
 ```gdscript
 SaveLite.save_completed.connect(func(path): print("Saved → ", path))

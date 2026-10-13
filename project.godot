@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Save / Load (Lite) · Demo"
-config/description="Free single-slot JSON save/load for Godot 4.5+."
+config/description="Free single-slot JSON save/load for Godot 4.3+."
 run/main_scene="res://demo/save_demo.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 

@@ -37,10 +37,10 @@ func _ready() -> void:
 	s.save_properties = PackedStringArray(["player_x", "coins"])
 	add_child(s)
 
-	SaveLite.save_completed.connect(func(p): _flash("Saved → %s" % p))
-	SaveLite.load_completed.connect(func(p): _flash("Loaded ← %s" % p))
-	SaveLite.save_failed.connect(func(r): _flash("Save failed: %s" % r))
-	SaveLite.load_failed.connect(func(r): _flash("Load failed: %s" % r))
+	_save_lite().save_completed.connect(func(p): _flash("Saved → %s" % p))
+	_save_lite().load_completed.connect(func(p): _flash("Loaded ← %s" % p))
+	_save_lite().save_failed.connect(func(r): _flash("Save failed: %s" % r))
+	_save_lite().load_failed.connect(func(r): _flash("Load failed: %s" % r))
 
 	_refresh()
 
@@ -59,14 +59,14 @@ func _input(event: InputEvent) -> void:
 	if not (event is InputEventKey) or not event.pressed:
 		return
 	match event.keycode:
-		KEY_S: SaveLite.save()
-		KEY_L: SaveLite.load()
+		KEY_S: _save_lite().save()
+		KEY_L: _save_lite().load()
 		KEY_C: coins += 1
 		KEY_R:
 			player_x = 400.0; coins = 0
 			_flash("Reset")
 		KEY_X:
-			if SaveLite.delete_save():
+			if _save_lite().delete_save():
 				_flash("Save file deleted")
 
 
@@ -84,3 +84,13 @@ func _refresh() -> void:
 	if Time.get_ticks_msec() / 1000.0 < _flash_until:
 		flash = "\n• %s" % _flash_text
 	_hud.text = "Save/Load (Lite) · Demo\nA/D to move (player_x = %d)\nC: +1 coin (coins = %d)\nS: Save • L: Load • R: Reset • X: Delete save%s" % [int(player_x), coins, flash]
+
+
+# SaveLite is looked up when used instead of named. A script that names an autoload
+# won't compile until the plugin that adds it is switched on, so a fresh install
+# printed parse errors.
+const SAVE_LITE := preload("res://addons/save_load_lite/save_lite.gd")
+
+
+static func _save_lite() -> SAVE_LITE:
+	return (Engine.get_main_loop() as SceneTree).root.get_node(^"SaveLite") as SAVE_LITE
