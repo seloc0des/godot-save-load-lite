@@ -23,4 +23,4 @@ The full version is on itch.io: **https://selodev.itch.io**.
 
 ## License
 
-Both Lite and Pro are MIT. You own the code outright.
+The Lite is MIT. The full version carries a commercial license: use it in any game you make, but don't resell or re-share the addon itself.
