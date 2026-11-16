@@ -15,12 +15,11 @@ Save / Load — Lite covers the "save a single JSON file" core. The Pro tier add
 
 ## Compatibility with the rest of the selodev stack
 
-Inventory, Equipment, Loot, Crafting, Vendor, Quests, Stats / Skill Trees all auto-join the **Pro** Save addon's contract group when both are installed. Lite uses a separate group name (`save_load_contract_lite`) so upgrading is a copy-paste — change the group name, that's it.
+Inventory, Equipment, Loot, Crafting, Vendor, Quests, Stats / Skill Trees all auto-join the **Pro** Save addon's contract group when both are installed. Lite uses a separate group name (`save_load_contract_lite`). A node you wrote for the Lite keeps its `get_save_id()`, `save_state()` and `load_state()` methods, so moving it over comes down to putting it in the full version's `save_load_contract` group. Calls change too: `SaveLite.save(path)` and `SaveLite.load(path)` become `SaveManager.save(slot)` and `SaveManager.load_slot(slot)`. The full version writes its own slot files and never reads the Lite's `user://save.json`.
 
 ## Where to buy
 
-The full version is on itch.io — **https://selodev.itch.io**. Both tiers share the
-same field names and method signatures, so upgrading is a class-name swap.
+The full version is on itch.io: **https://selodev.itch.io**.
 
 ## License
 
