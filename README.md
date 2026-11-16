@@ -76,4 +76,4 @@ Free VFX: [Magic Cast](https://github.com/seloc0des/godot-magic-cast-vfx-lite), 
 
 Free starter projects: [Free Starter](https://github.com/seloc0des/free-starter-godot), [Dungeon](https://github.com/seloc0des/godot-dungeon-starter), [Survival](https://github.com/seloc0des/godot-survival-starter), [RPG](https://github.com/seloc0des/godot-rpg-starter).
 
-The full versions add drop-in UI, editor docks and the cross-system wiring. They're on itch.io: **https://selodev.itch.io**
+The [full versions](https://selodev.itch.io/godot-saveload-system) add drop-in UI, editor docks and the cross-system wiring. They're on itch.io: **https://selodev.itch.io**
