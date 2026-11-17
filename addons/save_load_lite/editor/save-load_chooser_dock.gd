@@ -9,7 +9,7 @@ extends Control
 #
 # Lite is deliberately scoped: it makes a node saveable and adds quick save and load
 # keys (F5 / F9). A save menu with slots, checkpoints, autosave and save-on-quit are
-# the no-code wiring Save / Load (Pro) unlocks, and we say so honestly.
+# the no-code wiring the full Save / Load unlocks, and we say so honestly.
 
 const SAVEABLE_SCRIPT := "res://addons/save_load_lite/saveable.gd"
 const SAVE_KEYS_SCRIPT := "res://addons/save_load_lite/save_keys_lite.gd"
@@ -72,7 +72,7 @@ func _ready() -> void:
 
 	root.add_child(HSeparator.new())
 	var note := Label.new()
-	note.text = "It's your game. Change it any time: re-pick and Apply, or tweak the nodes in the Inspector (which properties the Saveable keeps, which keys SaveKeys uses).\n\nSave / Load (Pro) adds a save menu with slots, checkpoints (save on touch), autosave timers, save-on-quit, multi-slot, encryption and screenshots, and the RPG packs (Inventory, Quests and the rest) save through it by themselves."
+	note.text = "It's your game. Change it any time: re-pick and Apply, or tweak the nodes in the Inspector (which properties the Saveable keeps, which keys SaveKeys uses).\n\nThe full Save / Load adds a save menu with slots, checkpoints (save on touch), autosave timers, save-on-quit, multi-slot, encryption and screenshots, and the RPG packs (Inventory, Quests and the rest) save through it by themselves."
 	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	note.modulate = Color(0.72, 0.75, 0.82)
 	root.add_child(note)
@@ -237,7 +237,7 @@ func _find_saveable_on(target: Node, root: Node) -> Node:
 	return null
 
 
-# Pre-fill save_properties from the node's storable exports — mirrors the Pro
+# Pre-fill save_properties from the node's storable exports; mirrors the full
 # dock's _on_add_saveable so a non-coder gets a working save target in one click.
 # Node/embedded-resource exports don't survive the JSON round-trip, so skip them.
 func _storable_props(target: Node) -> PackedStringArray:

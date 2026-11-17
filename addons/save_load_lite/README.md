@@ -12,7 +12,7 @@ The working core of the [selodev Save addon](docs/upgrade.md). Make a node savea
 4. Pick **Quick save and load keys (F5 / F9)** and press **Apply**. A `SaveKeys` node goes on the scene root. Tick **Load the save when the scene starts** first if the game should start from the last save.
 5. Press Play. F5 saves, F9 loads, and a short message on screen confirms each.
 
-Pick other keys on the `SaveKeys` node in the Inspector. Apply again any time: it updates what's there instead of adding a second copy. *(Pro adds a save menu with slots, checkpoints, autosave timers and save-on-quit, all from its own Setup tab.)*
+Pick other keys on the `SaveKeys` node in the Inspector. Apply again any time: it updates what's there instead of adding a second copy. *(The full version adds a save menu with slots, checkpoints, autosave timers and save-on-quit, all from its own Setup tab.)*
 
 ## From code (optional)
 
@@ -30,16 +30,16 @@ SaveLite.save("user://slot2.json")  # custom path
 
 | Feature | Tier |
 |---|---|
-| Multi-slot save manager + UI | Pro |
-| Checkpoints (save on touch) | Pro |
-| Autosave (interval / signal) | Pro |
-| Save on quit | Pro |
-| Encrypted binary backend | Pro |
-| Atomic writes (tmp+rename) | Pro |
-| Schema migrations | Pro |
-| Editor dock (list / inspect / duplicate slots) | Pro |
-| Screenshots in slot metadata | Pro |
-| Side-channel slots (settings, achievements) | Pro |
+| Multi-slot save manager + UI | Full version |
+| Checkpoints (save on touch) | Full version |
+| Autosave (interval / signal) | Full version |
+| Save on quit | Full version |
+| Encrypted binary backend | Full version |
+| Atomic writes (tmp+rename) | Full version |
+| Schema migrations | Full version |
+| Editor dock (list / inspect / duplicate slots) | Full version |
+| Screenshots in slot metadata | Full version |
+| Side-channel slots (settings, achievements) | Full version |
 
 See [docs/upgrade.md](docs/upgrade.md).
 

@@ -57,7 +57,7 @@ SaveLite.has_save()
 SaveLite.delete_save()
 ```
 
-The Lite tier is single-slot per *path you pass*. If you need a slot manager UI plus per-slot screenshots and metadata, that lives in the Pro tier.
+The Lite tier is single-slot per *path you pass*. If you need a slot manager UI plus per-slot screenshots and metadata, that lives in the full version.
 
 ### Signals
 

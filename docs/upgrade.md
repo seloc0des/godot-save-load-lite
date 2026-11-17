@@ -1,8 +1,8 @@
-# Upgrade to Save / Load (Pro)
+# Upgrade to the full Save / Load
 
-Save / Load — Lite covers the "save a single JSON file" core. The Pro tier adds the production-grade features that make save systems actually reliable in shipped games.
+Save / Load: Lite covers the "save a single JSON file" core. The full version adds the production-grade features that make save systems actually reliable in shipped games.
 
-## What Pro adds
+## What the full version adds
 
 - **Multi-slot save manager.** Slot list, slot metadata, timestamps, screenshots. A drop-in UI scene.
 - **Autosave.** On interval, or driven by a signal (e.g. "checkpoint reached"). Configurable.
@@ -15,7 +15,7 @@ Save / Load — Lite covers the "save a single JSON file" core. The Pro tier add
 
 ## Compatibility with the rest of the selodev stack
 
-Inventory, Equipment, Loot, Crafting, Vendor, Quests, Stats / Skill Trees all auto-join the **Pro** Save addon's contract group when both are installed. Lite uses a separate group name (`save_load_contract_lite`). A node you wrote for the Lite keeps its `get_save_id()`, `save_state()` and `load_state()` methods, so moving it over comes down to putting it in the full version's `save_load_contract` group. Calls change too: `SaveLite.save(path)` and `SaveLite.load(path)` become `SaveManager.save(slot)` and `SaveManager.load_slot(slot)`. The full version writes its own slot files and never reads the Lite's `user://save.json`.
+Inventory, Equipment, Loot, Crafting, Vendor, Quests, Stats / Skill Trees all auto-join the **full** Save addon's contract group when both are installed. Lite uses a separate group name (`save_load_contract_lite`). A node you wrote for the Lite keeps its `get_save_id()`, `save_state()` and `load_state()` methods, so moving it over comes down to putting it in the full version's `save_load_contract` group. Calls change too: `SaveLite.save(path)` and `SaveLite.load(path)` become `SaveManager.save(slot)` and `SaveManager.load_slot(slot)`. The full version writes its own slot files and never reads the Lite's `user://save.json`.
 
 ## Where to buy
 

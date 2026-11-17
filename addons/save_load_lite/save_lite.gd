@@ -5,16 +5,16 @@ extends Node
 # methods participate.
 #
 # This is the **working core** of the selodev Save addon. Features cut from
-# the paid Pro tier:
+# the full version:
 #
-#   * Multi-slot save/load                 — Pro
-#   * Autosave on interval or signal       — Pro
-#   * Encrypted binary backend             — Pro
-#   * Atomic writes (tmp+rename)           — Pro
-#   * Schema migrations                    — Pro
-#   * Editor dock (list/inspect/duplicate) — Pro
-#   * Screenshots in slot metadata         — Pro
-#   * Side-channel slots (e.g. settings)   — Pro
+#   * Multi-slot save/load
+#   * Autosave on interval or signal
+#   * Encrypted binary backend
+#   * Atomic writes (tmp+rename)
+#   * Schema migrations
+#   * Editor dock (list/inspect/duplicate)
+#   * Screenshots in slot metadata
+#   * Side-channel slots (e.g. settings)
 #
 # See docs/upgrade.md for the paid tier.
 
